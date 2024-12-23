@@ -148,17 +148,3 @@ eval "$(starship init zsh)"
 setopt APPEND_HISTORY
 setopt HIST_FIND_NO_DUPS
 setopt SHARE_HISTORY
-
-# Source ROS 2 setup
-source /opt/ros/humble/setup.zsh
-
-# Source your ROS 2 workspace
-source ~/my_project/vajrenetra/vajranetra_ws/install/setup.zsh
-
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-
-
-alias runnode='ros2 run'
-alias launchnode='ros2 launch'
-alias echotopic='ros2 topic echo'
-alias listtopics='ros2 topic list'
