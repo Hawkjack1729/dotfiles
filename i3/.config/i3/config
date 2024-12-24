@@ -19,6 +19,9 @@ exec --no-startup-id feh --bg-scale ~/backgrounds/nice-blue-background.png
 exec --no-startup-id xrdb -merge ~/.Xresources
 exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 
+#Adding touch tap-to-click functionality
+exec --no-startup-id xinput set-prop "ELAN230C:00 04F3:30B7 Touchpad" "libinput Tapping Enabled" 1
+
 # kill any hanging polybar processes
 exec_always killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh

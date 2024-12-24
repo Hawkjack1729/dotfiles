@@ -122,8 +122,8 @@ export LC_CTYPE=en_US.UTF-8
 
 export EDITOR="nvim"
 
-export PATH="$HOME/.tmuxifier/bin:$PATH"
-eval "$(tmuxifier init -)"
+# export PATH="$HOME/.tmuxifier/bin:$PATH"
+# eval "$(tmuxifier init -)"
 
 
 alias n="nvim"
