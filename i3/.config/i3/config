@@ -15,16 +15,16 @@ set $mod Mod4
 # set $mod Mod1
 
 exec --no-startup-id picom
-exec --no-startup-id feh --bg-scale ~/backgrounds/nice-blue-background.png
+exec --no-startup-id feh --bg-scale ~/.config/backgrounds/nice-blue-background.png
 exec --no-startup-id xrdb -merge ~/.Xresources
 exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 
 #Adding touch tap-to-click functionality
-exec --no-startup-id xinput set-prop "ELAN230C:00 04F3:30B7 Touchpad" "libinput Tapping Enabled" 1
+exec_always --no-startup-id xinput set-prop "ELAN230C:00 04F3:30B7 Touchpad" "libinput Tapping Enabled" 1
 
 # kill any hanging polybar processes
 exec_always killall polybar
-exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
+exec --no-startup-id ~/.config/polybar/launch_polybar.sh
 
 bindsym Print exec maim "/home/$USER/Pictures/$(date).jpg"
 bindsym $mod+Print exec maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date).jpg"
@@ -64,14 +64,20 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5% && refresh_i3status
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%- && refresh_i3status
+
+
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec alacritty
+
+# start edge
+bindsym $mod+b exec microsoft-edge-stable
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -230,4 +236,15 @@ client.unfocused         $overlay0 $base  $text    $rosewater $overlay0
 client.urgent            $peach    $base  $peach   $overlay0  $peach
 client.placeholder       $overlay0 $base  $text    $overlay0  $overlay0
 client.background        $base
+
+
+# Outer gaps (between the screen edge and windows)
+gaps outer 10
+
+# Inner gaps (between windows)
+gaps inner 12
+
+exec --no-startup-id xrandr --newmode "1920x1080_59.96"  148.50  1920 2008 2052 2200  1080 1084 1089 1125 -hsync +vsync
+exec --no-startup-id xrandr --addmode eDP-1 1920x1080_59.96
+exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080_59.96
 

@@ -45,6 +45,16 @@ return {
 			},
 		})
 
+		-- Make NvimTree transparent
+		vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NvimTreeNormalNC", { bg = "none" })
+
+		-- Optional: Make other backgrounds transparent
+		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+		vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
 

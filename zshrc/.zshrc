@@ -122,9 +122,8 @@ export LC_CTYPE=en_US.UTF-8
 
 export EDITOR="nvim"
 
-# export PATH="$HOME/.tmuxifier/bin:$PATH"
-# eval "$(tmuxifier init -)"
-
+export PATH="$HOME/.tmuxifier/bin:$PATH"
+eval "$(tmuxifier init -)"
 
 alias n="nvim"
 alias py="python3"
@@ -148,3 +147,14 @@ eval "$(starship init zsh)"
 setopt APPEND_HISTORY
 setopt HIST_FIND_NO_DUPS
 setopt SHARE_HISTORY
+
+export LIBVA_DRIVER_NAME=iHD
+export LIBVA_DRIVERS_PATH=/usr/lib/dri/
+export VDPAU_DRIVER=va_g1
+
+export MOZ_ENABLE_WAYLAND=1
+export XDG_SESSION_TYPE=wayland
+
+alias microsoft-edge="microsoft-edge-stable --enable-features=UseOzonePlatform --ozone-platform=wayland"
+
+alias brave="brave --enable-features=UseOzonePlatform --ozone-platform=wayland"
