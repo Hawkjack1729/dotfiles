@@ -11,6 +11,14 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+plugins=( 
+    git
+    archlinux
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
+
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -158,3 +166,19 @@ export XDG_SESSION_TYPE=wayland
 alias microsoft-edge="microsoft-edge-stable --enable-features=UseOzonePlatform --ozone-platform=wayland"
 
 alias brave="brave --enable-features=UseOzonePlatform --ozone-platform=wayland"
+
+alias ta='tmux attach'
+alias tl='tmux ls'
+
+alias gc='git clone '
+alias ga='git add .'
+alias gcm='git commit -m '
+alias gp='git push -u orign main'
+alias gs='git status'
+
+source <(fzf --zsh)
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
